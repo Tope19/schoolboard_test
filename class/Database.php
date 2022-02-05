@@ -24,12 +24,12 @@
         public function insertData($post)
         {
             $name = $this->con->real_escape_string($_POST['name']);
-            $board_id = $this->con->real_escape_string($_POST['board_id']);
+            $board_name = $this->con->real_escape_string($_POST['board_name']);
             $grade1 = $this->con->real_escape_string($_POST['grade1']);
             $grade2 = $this->con->real_escape_string($_POST['grade2']);
             $grade3 = $this->con->real_escape_string($_POST['grade3']);
             $grade4 = $this->con->real_escape_string($_POST['grade4']);
-            $query="INSERT INTO students(name,board_id,grade1,grade2,grade3,grade4) VALUES('$name','$board_id','$grade1','$grade2','$grade3','$grade4','$salary')";
+            $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$salary')";
             $sql = $this->con->query($query);
             if ($sql==true) {
                 header("Location:index.php?msg1=insert");
@@ -41,7 +41,7 @@
         // Fetch customer records for show listing
         public function displayData()
         {
-            $query = "SELECT * FROM customers";
+            $query = "SELECT * FROM students";
             $result = $this->con->query($query);
         if ($result->num_rows > 0) {
             $data = array();
@@ -57,7 +57,7 @@
         // Fetch single data for edit from customer table
         public function displyaRecordById($id)
         {
-            $query = "SELECT * FROM customers WHERE id = '$id'";
+            $query = "SELECT * FROM students WHERE id = '$id'";
             $result = $this->con->query($query);
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
@@ -67,29 +67,11 @@
             }
         }
 
-        // Update customer data into customer table
-        public function updateRecord($postData)
-        {
-            $name = $this->con->real_escape_string($_POST['uname']);
-            $email = $this->con->real_escape_string($_POST['uemail']);
-            $salary = $this->con->real_escape_string($_POST['usalary']);
-            $id = $this->con->real_escape_string($_POST['id']);
-        if (!empty($id) && !empty($postData)) {
-            $query = "UPDATE customers SET name = '$name', email = '$email', salary = '$salary' WHERE id = '$id'";
-            $sql = $this->con->query($query);
-            if ($sql==true) {
-                header("Location:index.php?msg2=update");
-            }else{
-                echo "Registration updated failed try again!";
-            }
-            }
-            
-        }
 
         // Delete customer data from customer table
         public function deleteRecord($id)
         {
-            $query = "DELETE FROM customers WHERE id = '$id'";
+            $query = "DELETE FROM students WHERE id = '$id'";
             $sql = $this->con->query($query);
         if ($sql==true) {
             header("Location:index.php?msg3=delete");

@@ -3,12 +3,12 @@
   // Include database file
   include 'class/Database.php';
 
-  $customerObj = new Employee();
+  $studentObj = new Employee();
 
   // Delete record from table
   if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
       $deleteId = $_GET['deleteId'];
-      $customerObj->deleteRecord($deleteId);
+      $studentObj->deleteRecord($deleteId);
   }
      
 ?>
@@ -55,26 +55,31 @@
     <thead>
       <tr>
         <th>Id</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Salary</th>
+        <th>Board Name</th>
+        <th>Student Name</th>
+        <th>Grade 1</th>
+        <th>Grade 2</th>
+        <th>Grade 3</th>
+        <th>Grade 4</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
         <?php 
-          $customers = $customerObj->displayData(); 
-          foreach ($customers as $customer) {
+          $students = $studentObj->displayData(); 
+          foreach ($students as $student) {
         ?>
         <tr>
-          <td><?php echo $customer['id'] ?></td>
-          <td><?php echo $customer['name'] ?></td>
-          <td><?php echo $customer['email'] ?></td>
-          <td><?php echo $customer['salary'] ?></td>
+          <td><?php echo $student['id'] ?></td>
+          <td><?php echo $student['board_name'] ?></td>
+          <td><?php echo $student['grade1'] ?></td>
+          <td><?php echo $student['grade2'] ?></td>
+          <td><?php echo $student['grade3'] ?></td>
+          <td><?php echo $student['grade4'] ?></td>
           <td>
-            <button class="btn btn-primary mr-2"><a href="edit.php?editId=<?php echo $customer['id'] ?>">
+            <button class="btn btn-primary mr-2"><a href="edit.php?editId=<?php echo $student['id'] ?>">
               <i class="fa fa-pencil text-white" aria-hidden="true"></i></a></button>
-            <button class="btn btn-danger"><a href="index.php?deleteId=<?php echo $customer['id'] ?>" onclick="confirm('Are you sure want to delete this record')">
+            <button class="btn btn-danger"><a href="index.php?deleteId=<?php echo $student['id'] ?>" onclick="confirm('Are you sure want to delete this record')">
               <i class="fa fa-trash text-white" aria-hidden="true"></i>
             </a></button>
           </td>

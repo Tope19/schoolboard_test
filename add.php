@@ -14,7 +14,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PHP MySql OOP CRUD Example Tutorial</title>
+  <title>School Board Test</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
 <body>
 
 <div class="card text-center" style="padding:15px;">
-  <h4>PHP MySql OOP CRUD Example Tutorial</h4>
+  <h4>School Board Test</h4>
 </div><br> 
 
 <div class="container">
@@ -36,17 +36,19 @@
                 <div class="card-body bg-light">
                   <form action="add.php" method="POST">
                     <div class="form-group">
-                      <label for="name">Name:</label>
+                      <label for="name">Student Name:</label>
                       <input type="text" class="form-control" name="name" placeholder="Enter name" required="">
                     </div>
+
                     <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" name="email" placeholder="Enter email" required="">
+                      <label for="name">Board Name:</label>
+                      <select name="board_name">
+                          <option value="">Select Board</option>
+                            <option value="CBSE">CBSE</option>
+                            <option value="ICSE">ICSE</option>
+                      </select>
                     </div>
-                    <div class="form-group">
-                      <label for="salary">Salary:</label>
-                      <input type="text" class="form-control" name="salary" placeholder="Enter Salary" required="">
-                    </div>
+                   
                     <input type="submit" name="submit" class="btn btn-primary" style="float:right;" value="Submit">
                   </form>
                 </div>
