@@ -44,8 +44,8 @@
                       <label for="name">Board Name:</label>
                       <select name="board_name">
                           <option value="">Select Board</option>
-                            <option value="CBSE">CBSE</option>
-                            <option value="ICSE">ICSE</option>
+                            <option value="CSM">CSM</option>
+                            <option value="CSMB">CSMB</option>
                       </select>
                     </div>
 

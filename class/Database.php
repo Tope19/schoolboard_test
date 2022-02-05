@@ -37,32 +37,24 @@
                 } else{
                     $result = 'Fail';
                 }
-            } elseif($_POST['board_name']=="CSMB"){
-                $count = count($grade1, $grade2, $grade3, $grade4);
-                $min = min($grade1, $grade2, $grade3, $grade4);
+                $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
+                $sql = $this->con->query($query);
 
-                //if you have more than two grades, discard the lowest grade out of all of them
-                if($count > 2){
-                    $grade1 = $grade1 - $min;
-                    $grade2 = $grade2 - $min;
-                    $grade3 = $grade3 - $min;
-                    $grade4 = $grade4 - $min;
-                }
-                 
-                //if the highest grade is greater than or equals to 8, return pass
-                if($grade1 >= 8 || $grade2 >= 8 || $grade3 >= 8 || $grade4 >= 8){
+            }
+            if($_POST['board_name']=="CSMB"){
+                $avg=$grade1+$grade2+$grade3+$grade4;
+                $average = $avg/4;
+                if($average >= 7){
                     $result = 'Pass';
                 } else{
                     $result = 'Fail';
                 }
+                $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$result', '$average')";
+                $sql = $this->con->query($query);
 
-                //return average
-                $avg = $grade1 + $grade2 + $grade3 + $grade4;
-                $average = $avg/4;
+
             }
-            $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
-            $sql = $this->con->query($query);
-            if ($sql==true) {
+             if ($sql==true) {
                 header("Location:index.php?msg1=insert");
             }else{
                 echo "Registration failed try again!";
