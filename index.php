@@ -61,6 +61,8 @@
         <th>Grade 2</th>
         <th>Grade 3</th>
         <th>Grade 4</th>
+        <th>Result</th>
+        <th>Average</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -77,6 +79,8 @@
           <td><?php echo $student['grade2'] ?></td>
           <td><?php echo $student['grade3'] ?></td>
           <td><?php echo $student['grade4'] ?></td>
+          <td><?php echo $student['result'] ?></td>
+          <td><?php echo $student['average'] ?>%</td>
           <td>
             <button class="btn btn-primary mr-2"><a href="student.php?id=<?php echo $student['id'] ?>">
               <i class="fa fa-eye text-white" aria-hidden="true"></i></a></button>

@@ -61,6 +61,14 @@
                       <label for="name">Grade 4:</label>
                       <input type="text" class="form-control" value="<?php echo $student['grade4']; ?>" required="">
                     </div>
+                    <div class="form-group">
+                      <label for="name">Result:</label>
+                      <input type="text" class="form-control" value="<?php echo $student['result']; ?>" required="">
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Average:</label>
+                      <input type="text" class="form-control" value="<?php echo $student['average']; ?>%" required="">
+                    </div>
                 </div>
                 </div>
             </div>
