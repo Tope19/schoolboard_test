@@ -15,7 +15,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>PHP MySql OOP CRUD Example Tutorial</title>
+  <title>School Board Test</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -24,7 +24,7 @@
 <body>
 
 <div class="card text-center" style="padding:15px;">
-  <h4>PHP MySql OOP CRUD Example Tutorial</h4>
+  <h4>School board Test</h4>
 </div><br><br> 
 
 <div class="container">

@@ -16,7 +16,7 @@
             if(mysqli_connect_error()) {
              trigger_error("Failed to connect to MySQL: " . mysqli_connect_error());
             }else{
-            return $this->con;
+                return $this->con;
             }
         }
 
@@ -24,9 +24,12 @@
         public function insertData($post)
         {
             $name = $this->con->real_escape_string($_POST['name']);
-            $email = $this->con->real_escape_string($_POST['email']);
-            $salary = $this->con->real_escape_string($_POST['salary']);
-            $query="INSERT INTO customers(name,email,salary) VALUES('$name','$email','$salary')";
+            $board_id = $this->con->real_escape_string($_POST['board_id']);
+            $grade1 = $this->con->real_escape_string($_POST['grade1']);
+            $grade2 = $this->con->real_escape_string($_POST['grade2']);
+            $grade3 = $this->con->real_escape_string($_POST['grade3']);
+            $grade4 = $this->con->real_escape_string($_POST['grade4']);
+            $query="INSERT INTO students(name,board_id,grade1,grade2,grade3,grade4) VALUES('$name','$board_id','$grade1','$grade2','$grade3','$grade4','$salary')";
             $sql = $this->con->query($query);
             if ($sql==true) {
                 header("Location:index.php?msg1=insert");
