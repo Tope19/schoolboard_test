@@ -6,15 +6,12 @@
   $studentObj = new Employee();
 
   // Edit student record
-  if(isset($_GET['editId']) && !empty($_GET['editId'])) {
-    $editId = $_GET['editId'];
+  if(isset($_GET['id']) && !empty($_GET['id'])) {
+      
+    $editId = $_GET['id'];
     $student = $studentObj->displyaRecordById($editId);
   }
 
-  // Update Record in student table
-  if(isset($_POST['update'])) {
-    $studentObj->updateRecord($_POST);
-  }  
     
 ?>
 <!DOCTYPE html>
@@ -37,7 +34,7 @@
         <div class="col-md-5 mx-auto">
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h4 class="text-white">Update Records</h4>
+                    <h4 class="text-white">View Records</h4>
                 </div>
                 <div class="card-body bg-light">
                     <div class="form-group">

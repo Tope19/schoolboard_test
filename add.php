@@ -48,6 +48,26 @@
                             <option value="ICSE">ICSE</option>
                       </select>
                     </div>
+
+                    <div class="form-group">
+                      <label for="name">Grade 1:</label>
+                      <input type="text" class="form-control" name="grade1" placeholder="Enter Grade" required="">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="name">Grade 2:</label>
+                      <input type="text" class="form-control" name="grade2" placeholder="Enter Grade" required="">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="name">Grade 3:</label>
+                      <input type="text" class="form-control" name="grade3" placeholder="Enter Grade" required="">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="name">Grade 4:</label>
+                      <input type="text" class="form-control" name="grade4" placeholder="Enter Grade" required="">
+                    </div>
                    
                     <input type="submit" name="submit" class="btn btn-primary" style="float:right;" value="Submit">
                   </form>

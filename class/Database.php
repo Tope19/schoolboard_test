@@ -20,7 +20,7 @@
             }
         }
 
-        // Insert customer data into customer table
+        // Insert students data into students table
         public function insertData($post)
         {
             $name = $this->con->real_escape_string($_POST['name']);
@@ -29,7 +29,7 @@
             $grade2 = $this->con->real_escape_string($_POST['grade2']);
             $grade3 = $this->con->real_escape_string($_POST['grade3']);
             $grade4 = $this->con->real_escape_string($_POST['grade4']);
-            $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$salary')";
+            $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4')";
             $sql = $this->con->query($query);
             if ($sql==true) {
                 header("Location:index.php?msg1=insert");
@@ -38,7 +38,7 @@
             }
         }
 
-        // Fetch customer records for show listing
+        // Fetch students records for show listing
         public function displayData()
         {
             $query = "SELECT * FROM students";
@@ -54,7 +54,7 @@
             }
         }
 
-        // Fetch single data for edit from customer table
+        // Fetch single data  from students table
         public function displyaRecordById($id)
         {
             $query = "SELECT * FROM students WHERE id = '$id'";
@@ -68,7 +68,7 @@
         }
 
 
-        // Delete customer data from customer table
+        // Delete students data from students table
         public function deleteRecord($id)
         {
             $query = "DELETE FROM students WHERE id = '$id'";
