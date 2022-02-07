@@ -3,7 +3,7 @@
   // Include database file
   include 'class/Database.php';
 
-  $studentObj = new Employee();
+  $studentObj = new Student();
 
   // Edit student record
   if(isset($_GET['id']) && !empty($_GET['id'])) {

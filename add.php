@@ -1,9 +1,9 @@
 <?php
 
   // Include database file
-  include 'class/Database.php';
+  include 'class/Student.php';
 
-  $customerObj = new Employee();
+  $customerObj = new Student();
 
   // Insert Record in customer table
   if(isset($_POST['submit'])) {
@@ -37,12 +37,12 @@
                   <form action="add.php" method="POST">
                     <div class="form-group">
                       <label for="name">Student Name:</label>
-                      <input type="text" class="form-control" name="name" placeholder="Enter name" required="">
+                      <input type="text" required class="form-control" name="name" placeholder="Enter name" required="">
                     </div>
 
                     <div class="form-group">
                       <label for="name">Board Name:</label>
-                      <select name="board_name">
+                      <select name="board_name" required>
                           <option value="">Select Board</option>
                             <option value="CSM">CSM</option>
                             <option value="CSMB">CSMB</option>
@@ -51,12 +51,12 @@
 
                     <div class="form-group">
                       <label for="name">Grade 1:</label>
-                      <input type="text" class="form-control" name="grade1" placeholder="Enter Grade" required="">
+                      <input type="text" required class="form-control" name="grade1" placeholder="Enter Grade" required="">
                     </div>
 
                     <div class="form-group">
                       <label for="name">Grade 2:</label>
-                      <input type="text" class="form-control" name="grade2" placeholder="Enter Grade" required="">
+                      <input type="text" required class="form-control" name="grade2" placeholder="Enter Grade" required="">
                     </div>
 
                     <div class="form-group">

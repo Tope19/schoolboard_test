@@ -1,9 +1,9 @@
 <?php
   
   // Include database file
-  include 'class/Database.php';
+  include 'class/Student.php';
 
-  $studentObj = new Employee();
+  $studentObj = new Student();
 
   // Delete record from table
   if(isset($_GET['deleteId']) && !empty($_GET['deleteId'])) {
@@ -20,6 +20,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+  <link href="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/tableExport.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF/jspdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin@1.10.21/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+  
 </head>
 <body>
 
@@ -34,13 +41,7 @@
               <button type='button' class='close' data-dismiss='alert'>×</button>
               Your Registration added successfully
             </div>";
-      } 
-    if (isset($_GET['msg2']) == "update") {
-      echo "<div class='alert alert-success alert-dismissible'>
-              <button type='button' class='close' data-dismiss='alert'>×</button>
-              Your Registration updated successfully
-            </div>";
-    }
+      }
     if (isset($_GET['msg3']) == "delete") {
       echo "<div class='alert alert-success alert-dismissible'>
               <button type='button' class='close' data-dismiss='alert'>×</button>
@@ -51,7 +52,7 @@
   <h2>View Records
     <a href="add.php" style="float:right;"><button class="btn btn-success"><i class="fas fa-plus"></i></button></a>
   </h2>
-  <table class="table table-hover">
+  <table id="table" data-show-export="true" class="table table-hover">
     <thead>
       <tr>
         <th>Id</th>
@@ -95,5 +96,16 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  var $table = $('#table');
+  $(function() {
+    $('#toolbar').find('select').change(function () {
+      $table.bootstrapTable('destroy').bootstrapTable({
+        exportDataType: $(this).val(),
+        exportTypes: ['json', 'xml', 'csv', 'txt', 'sql', 'excel', 'pdf'],
+      })
+    }).trigger('change')
+  });
+</script>
 </body>
 </html>

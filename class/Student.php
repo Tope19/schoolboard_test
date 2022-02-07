@@ -1,6 +1,6 @@
 <?php
 
-    class Employee
+    class Student
     {
         private $servername = "localhost";
         private $username   = "root";
@@ -29,18 +29,18 @@
             $grade2 = $this->con->real_escape_string($_POST['grade2']);
             $grade3 = $this->con->real_escape_string($_POST['grade3']);
             $grade4 = $this->con->real_escape_string($_POST['grade4']);
-            if($_POST['board_name']=="CSM"){
-                $avg=$grade1+$grade2+$grade3+$grade4;
-                $average = $avg/4;
-                if($average >= 7){
-                    $result = 'Pass';
-                } else{
-                    $result = 'Fail';
-                }
-                $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
-                $sql = $this->con->query($query);
+            // if($_POST['board_name']=="CSM"){
+            //     $avg=$grade1+$grade2+$grade3+$grade4;
+            //     $average = $avg/4;
+            //     if($average >= 7){
+            //         $result = 'Pass';
+            //     } else{
+            //         $result = 'Fail';
+            //     }
+            //     $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
+            //     $sql = $this->con->query($query);
 
-            }
+            // }
             if($_POST['board_name']=="CSMB"){
                 $avg=$grade1+$grade2+$grade3+$grade4;
                 $average = $avg/4;
@@ -98,7 +98,7 @@
             $query = "DELETE FROM students WHERE id = '$id'";
             $sql = $this->con->query($query);
         if ($sql==true) {
-            header("Location:index.php?msg3=delete");
+            header("Location:index.php");
         }else{
             echo "Record does not delete try again";
             }
