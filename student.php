@@ -1,7 +1,7 @@
 <?php
   
   // Include database file
-  include 'class/Database.php';
+  include 'class/Student.php';
 
   $studentObj = new Student();
 

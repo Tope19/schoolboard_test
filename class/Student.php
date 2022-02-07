@@ -29,19 +29,7 @@
             $grade2 = $this->con->real_escape_string($_POST['grade2']);
             $grade3 = $this->con->real_escape_string($_POST['grade3']);
             $grade4 = $this->con->real_escape_string($_POST['grade4']);
-            // if($_POST['board_name']=="CSM"){
-            //     $avg=$grade1+$grade2+$grade3+$grade4;
-            //     $average = $avg/4;
-            //     if($average >= 7){
-            //         $result = 'Pass';
-            //     } else{
-            //         $result = 'Fail';
-            //     }
-            //     $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
-            //     $sql = $this->con->query($query);
-
-            // }
-            if($_POST['board_name']=="CSMB"){
+            if($_POST['board_name']=="CSM"){
                 $avg=$grade1+$grade2+$grade3+$grade4;
                 $average = $avg/4;
                 if($average >= 7){
@@ -49,11 +37,42 @@
                 } else{
                     $result = 'Fail';
                 }
-                $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$result', '$average')";
+                $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
                 $sql = $this->con->query($query);
 
-
             }
+            if($_POST['board_name']=="CSMB"){
+              $grade_arr = [
+                $grade1,
+                $grade2,
+                $grade3,
+                $grade4
+              ];
+
+              $min_grade = 0;
+              foreach($grade_arr as $key => $value){
+                if($value < $min_grade){
+                  $min_grade = $value;
+                }
+              }
+
+              foreach($grade_arr as $key => $value){
+                if($value == $min_grade){
+                  unset($grade_arr[$key]);
+                }
+              }
+
+              $count_grade = count($grade_arr);
+              if($count_grade > 2 && max($grade_arr) > 8){
+                $result = 'Pass';
+                
+              } else{
+                $result = 'Fail';
+              }
+              $query="INSERT INTO students(name,board_name,grade1,grade2,grade3,grade4,result,average) VALUES('$name','$board_name','$grade1','$grade2','$grade3','$grade4','$result', '$average')";
+              $sql = $this->con->query($query);
+              }
+
              if ($sql==true) {
                 header("Location:index.php?msg1=insert");
             }else{
